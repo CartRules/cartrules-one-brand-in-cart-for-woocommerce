@@ -24,7 +24,11 @@ function cartrules_obic_settings_fields( $settings, $section_id ) {
 		array(
 			'title' => __( 'One Brand in Cart', 'cartrules-one-brand-in-cart-for-woocommerce' ),
 			'type'  => 'title',
-			'desc'  => __( 'Prevent customers from mixing products from different brands in the same cart.', 'cartrules-one-brand-in-cart-for-woocommerce' ),
+			/* translators: %s: link to the CartRules PRO plugin page. */
+			'desc'  => sprintf(
+				__( 'Prevent customers from mixing products from different brands in the same cart. Need more control? %1$s puts every cart rule (category, tag, brand, shipping class, product type) in one place. Each rule can target specific brands instead of "any one at a time" (for example, only keep "Gift Cards" separate), and you get unlimited custom rules with full control over when each one applies. It also checks for other cart restrictions already running on your store, whether from another CartRules plugin or your own custom code, so nothing quietly conflicts.', 'cartrules-one-brand-in-cart-for-woocommerce' ),
+				'<a href="https://cartrules.com/product/cartrules-one-in-cart-pro/" target="_blank" rel="noopener noreferrer">CartRules One in Cart PRO</a>'
+			),
 			'id'    => 'cartrules_obic_settings_title',
 		),
 		array(
