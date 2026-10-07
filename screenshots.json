@@ -1,0 +1,70 @@
+{
+    "product_id": 258425,
+    "best": "hero",
+    "pairs_with": [
+        "cartrules-one-category-in-cart-for-woocommerce",
+        "cartrules-one-shipping-class-in-cart-for-woocommerce"
+    ],
+    "shots": [
+        {
+            "name": "hero",
+            "url": "/cart/",
+            "selector": ".wp-block-woocommerce-cart",
+            "pad": 24,
+            "viewport": [
+                1400,
+                900
+            ],
+            "settle": 3500,
+            "css": "#coming-soon-footer-banner{display:none!important}",
+            "actions": [
+                {
+                    "goto": "/?add-to-cart=336"
+                },
+                {
+                    "goto": "/?add-to-cart=337"
+                }
+            ],
+            "seed": {
+                "options": {
+                    "cartrules_obic_enabled": "yes"
+                },
+                "php": "$__brand = get_term_by('name', 'Nordwood', 'product_brand'); if (!$__brand) { $__t = wp_insert_term('Nordwood', 'product_brand'); $__brand_id = $__t['term_id']; } else { $__brand_id = $__brand->term_id; } $__names = array(336 => array('Nordwood Wool Sweater', '68.00'), 337 => array('Nordwood Hiking Boots', '94.00')); foreach ($__names as $__id => $__data) { list($__n, $__price) = $__data; $__existing = get_post($__id); if (!$__existing || $__existing->post_title !== $__n) { $__p = new WC_Product_Simple(); $__p->set_name($__n); $__id = $__p->save(); } $__prod = wc_get_product($__id); $__prod->set_regular_price($__price); $__prod->save(); wp_set_object_terms($__id, array($__brand_id), 'product_brand'); } WC()->cart->empty_cart();"
+            }
+        },
+        {
+            "name": "top",
+            "slot": "row",
+            "url": "/wp-admin/admin.php?page=wc-settings&tab=cartrules&section=obic",
+            "selector": [
+                "tr:has(#cartrules_obic_enabled)",
+                "tr:has(#cartrules_obic_mode)"
+            ],
+            "pad": 20,
+            "viewport": [
+                900,
+                500
+            ],
+            "settle": 1200
+        },
+        {
+            "name": "bottom",
+            "slot": "row",
+            "url": "/wp-admin/admin.php?page=wc-settings&tab=cartrules&section=obic",
+            "selector": [
+                "tr:has(#cartrules_obic_deny_message)",
+                "tr:has(#cartrules_obic_replace_message)"
+            ],
+            "pad": 20,
+            "viewport": [
+                900,
+                700
+            ],
+            "settle": 1200
+        }
+    ],
+    "hero": {
+        "layout": "single",
+        "shot": "hero"
+    }
+}
